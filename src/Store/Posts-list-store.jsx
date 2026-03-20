@@ -67,15 +67,6 @@ const PostListProvider = ({ children }) => {
 
 const DEFAULT_POST_LIST = [
   {
-    id: 1,
-    userName: "Kriti kaushik",
-    title: "Aaj meri pitti hui hai.",
-    body: "Mere piti hui h aaj, kyuki maine aaj khana time pe nhi khaya tha aur jubana ladaya tha mumma se",
-    reactions: 20,
-    userId: "user-1",
-    tags: ["Angry", "Mood-off", "Sad"],
-  },
-  {
     id: 2,
     userName: "Rishav kaushik",
     title: "Aaj Banaras jana hua",
