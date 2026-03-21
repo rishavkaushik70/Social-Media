@@ -23,6 +23,9 @@
 .reactions{
   margin: 15px 0 0 0;
 }
+.reactionsLike{
+  margin-right: 20px;
+}
 .postUserName{
   font-size: 24px;
   font-weight: 500;
@@ -49,4 +52,24 @@
 }
 .footer{
   margin-top: 100px;
+}
+.listCollapse{
+  font-size: 30px;
+}
+.hide-sidebar{
+  display: none;
+}
+.welcomeMessage{
+  margin-top:50px;
+}
+.listcollapse{
+  font-size: 40px;
+}
+.postContainer{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.spinner{
+  margin: 20% 0;
 }

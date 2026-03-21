@@ -4,6 +4,7 @@ export const PostList = createContext({
   postList: [],
   addPost: () => {},
   deletePost: () => {},
+  addInitialPosts: () => {},
 });
 
 const postListReducer = (currPostList, action) => {
@@ -12,16 +13,15 @@ const postListReducer = (currPostList, action) => {
     newPostList = currPostList.filter(
       (post) => post.id !== action.payload.postId,
     );
+  } else if (action.type === "CREATE_INITIAL_POSTS") {
+    newPostList = action.payload.posts;
   } else if (action.type === "CREATE_POST") {
     newPostList = [action.payload, ...currPostList];
   }
   return newPostList;
 };
 const PostListProvider = ({ children }) => {
-  const [postList, dispatchPostList] = useReducer(
-    postListReducer,
-    DEFAULT_POST_LIST,
-  );
+  const [postList, dispatchPostList] = useReducer(postListReducer, []);
   const addPost = (
     userName,
     userId,
@@ -43,6 +43,14 @@ const PostListProvider = ({ children }) => {
       },
     });
   };
+  const addInitialPosts = (posts) => {
+    dispatchPostList({
+      type: "CREATE_INITIAL_POSTS",
+      payload: {
+        posts,
+      },
+    });
+  };
   const deletePost = (postId) => {
     dispatchPostList({
       type: "DELETE_POST",
@@ -58,22 +66,11 @@ const PostListProvider = ({ children }) => {
         postList,
         addPost,
         deletePost,
+        addInitialPosts,
       }}
     >
       {children}
     </PostList.Provider>
   );
 };
-
-const DEFAULT_POST_LIST = [
-  {
-    id: 2,
-    userName: "Rishav kaushik",
-    title: "Aaj Banaras jana hua",
-    body: "Aaj bnaras jane ka shaubhaya prapt hua. Bahut enjoy kiyaa gyaa",
-    reactions: 10,
-    userId: "user-2",
-    tags: ["Enjoying", "Vacation"],
-  },
-];
 export default PostListProvider;
