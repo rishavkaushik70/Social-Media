@@ -43,7 +43,6 @@ const CreatePost = () => {
     })
       .then((res) => res.json())
       .then((post) => {
-        console.log(post);
         addPost(post);
       });
   };
