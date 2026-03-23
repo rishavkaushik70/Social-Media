@@ -1,16 +1,26 @@
-# React + Vite
+# FriendSpot - Social Media Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A dynamic, single-page social media application built with React. This project demonstrates modern frontend development practices, state management, and API integration.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+https://socialmedia-reactproject.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Key Features
+* **Fetch Dynamic Posts:** Integrates with DummyJSON API to fetch and display posts dynamically.
+* **Create New Posts:** Users can create posts with titles, body content, tags, and specific reaction counts (Likes/Dislikes).
+* **Optimized Network Requests:** Utilizes `AbortController` in `useEffect` cleanup functions to prevent memory leaks and cancel unnecessary API calls.
+* **State Management:** Uses React Context API (`useContext`) for global state management across components, avoiding prop drilling.
+* **Responsive UI:** Clean and responsive user interface with Loading states and empty-data fallbacks (Welcome Messages).
 
-## React Compiler
+## 🛠️ Tech Stack
+* **Frontend:** React.js, Vite
+* **Styling:** CSS / Bootstrap
+* **API Handling:** Native `fetch` API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚙️ Installation & Setup
+To run this project on your local machine, follow these steps:
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/rishavkaushik70/Social-Media.git](https://github.com/rishavkaushik70/Social-Media.git)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
