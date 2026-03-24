@@ -24,3 +24,5 @@ To run this project on your local machine, follow these steps:
    ```bash
    git clone [https://github.com/rishavkaushik70/Social-Media.git](https://github.com/rishavkaushik70/Social-Media.git)
 
+"Note: This project currently uses the DummyJSON API for backend simulation. The 'Create Post' feature successfully executes POST requests and actions, but since DummyJSON does not persist data, new posts will not reflect on the Home feed upon redirect. Full CRUD functionality will be visible once the custom backend is integrated."
+
