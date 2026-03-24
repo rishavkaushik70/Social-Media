@@ -1,10 +1,32 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import App from "./routes/App.jsx";
+import CreatePost, { createPostAction } from "./components/post/CreatePost.jsx";
+import PostList, { postLoader } from "./components/post/PostList";
+import LoginForm from "./components/pages/loginForm/LoginForm.jsx";
+import SignUp from "./components/pages/signUpForm/SignUp.jsx";
 
-createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      { path: "/", element: <PostList />, loader: postLoader },
+      {
+        path: "/create-post",
+        element: <CreatePost />,
+        action: createPostAction,
+      },
+      { path: "/login-form", element: <LoginForm /> },
+      { path: "/signup-form", element: <SignUp /> },
+    ],
+  },
+]);
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
-)
+);

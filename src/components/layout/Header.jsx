@@ -1,4 +1,6 @@
-const Header = ({ loginButton, setLoginButton, setSelectedTab }) => {
+import { Link, NavLink } from "react-router-dom";
+
+const Header = () => {
   return (
     <header className="p-3 text-bg-dark">
       {" "}
@@ -23,25 +25,15 @@ const Header = ({ loginButton, setLoginButton, setSelectedTab }) => {
           </a>{" "}
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
             {" "}
-            <li
-              onClick={() => {
-                setSelectedTab("Home");
-                setLoginButton("");
-              }}
-            >
-              <a href="#" className="nav-link px-2 text-secondary text-white">
+            <li>
+              <Link to="/" className="nav-link px-2 text-secondary text-white">
                 Home
-              </a>
+              </Link>
             </li>{" "}
-            <li
-              onClick={() => {
-                setSelectedTab("Create post");
-                setLoginButton("");
-              }}
-            >
-              <a href="#" className="nav-link px-2 text-white">
+            <li>
+              <Link to="/create-post" className="nav-link px-2 text-white">
                 Create Post
-              </a>
+              </Link>
             </li>{" "}
             <li>
               <a href="#" className="nav-link px-2 text-white">
@@ -74,24 +66,24 @@ const Header = ({ loginButton, setLoginButton, setSelectedTab }) => {
           </form>{" "}
           <div className="text-end">
             {" "}
-            <button
+            <NavLink
+              to={"/login-form"}
               type="button"
-              className={`btn ${loginButton === "Login" ? "btn-warning" : "btn-outline-light"}`}
-              onClick={() => {
-                setLoginButton("Login");
-              }}
+              className={({ isActive }) =>
+                isActive ? "btn btn-warning" : " btn btn-outline-light"
+              }
             >
               Login
-            </button>{" "}
-            <button
+            </NavLink>{" "}
+            <NavLink
+              to={"/signup-form"}
               type="button"
-              className={`btn ${loginButton === "Sign-up" ? "btn-warning" : "btn-outline-light"}`}
-              onClick={() => {
-                setLoginButton("Sign-up");
-              }}
+              className={({ isActive }) =>
+                isActive ? "btn btn-warning" : " btn btn-outline-light"
+              }
             >
               Sign-up
-            </button>{" "}
+            </NavLink>{" "}
           </div>{" "}
         </div>{" "}
       </div>{" "}

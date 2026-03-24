@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { MdDeleteForever } from "react-icons/md";
-import { PostList } from "../../context/PostContext";
+import { PostListContext } from "../../context/PostContext";
 const Post = ({ post }) => {
-  const { deletePost } = useContext(PostList);
+  const { deletePost } = useContext(PostListContext);
   return (
     <div className="card cardBox" style={{ width: "30rem" }}>
       <div className="card-body">

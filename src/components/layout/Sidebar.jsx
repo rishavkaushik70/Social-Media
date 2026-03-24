@@ -1,4 +1,6 @@
-const Sidebar = ({ selectedTab, setSelectedTab, setLoginButton }) => {
+import { NavLink } from "react-router-dom";
+
+const Sidebar = () => {
   return (
     <>
       <div
@@ -15,17 +17,13 @@ const Sidebar = ({ selectedTab, setSelectedTab, setLoginButton }) => {
         <hr />{" "}
         <ul className="nav nav-pills flex-column mb-auto">
           {" "}
-          <li
-            className="nav-item"
-            onClick={() => {
-              setSelectedTab("Home");
-              setLoginButton("");
-            }}
-          >
+          <li>
             {" "}
-            <a
-              href="#"
-              className={`nav-link text-white ${selectedTab === "Home" && "active"}`}
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive ? "nav-link text-white active" : "nav-link text-white"
+              }
               aria-current="page"
             >
               {" "}
@@ -38,18 +36,15 @@ const Sidebar = ({ selectedTab, setSelectedTab, setLoginButton }) => {
                 <use xlinkHref="#home"></use>
               </svg>
               Home
-            </a>{" "}
+            </NavLink>{" "}
           </li>{" "}
-          <li
-            onClick={() => {
-              setSelectedTab("Create post");
-              setLoginButton("");
-            }}
-          >
+          <li>
             {" "}
-            <a
-              href="#"
-              className={`nav-link text-white ${selectedTab === "Create post" && "active"}`}
+            <NavLink
+              to="/create-post"
+              className={({ isActive }) =>
+                isActive ? "nav-link text-white active" : "nav-link text-white"
+              }
             >
               {" "}
               <svg
@@ -61,7 +56,7 @@ const Sidebar = ({ selectedTab, setSelectedTab, setLoginButton }) => {
                 <use xlinkHref="#speedometer2"></use>
               </svg>
               Create Post
-            </a>{" "}
+            </NavLink>{" "}
           </li>{" "}
         </ul>{" "}
         <hr />{" "}
