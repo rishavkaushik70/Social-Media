@@ -1,9 +1,6 @@
-import { useContext } from "react";
 import { Form, redirect } from "react-router-dom";
 
 const CreatePost = () => {
-  const { addPost } = useContext(PostListContext);
-
   return (
     <>
       <h1 className="postheading">Create your post</h1>{" "}
